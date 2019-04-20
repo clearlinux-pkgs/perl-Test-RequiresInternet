@@ -4,10 +4,10 @@
 #
 Name     : perl-Test-RequiresInternet
 Version  : 0.05
-Release  : 10
+Release  : 11
 URL      : http://search.cpan.org/CPAN/authors/id/M/MA/MALLEN/Test-RequiresInternet-0.05.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/M/MA/MALLEN/Test-RequiresInternet-0.05.tar.gz
-Summary  : 'Easily test network connectivity'
+Summary  : Easily test network connectivity
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Test-RequiresInternet-license = %{version}-%{release}
@@ -23,6 +23,7 @@ version 0.05
 Summary: dev components for the perl-Test-RequiresInternet package.
 Group: Development
 Provides: perl-Test-RequiresInternet-devel = %{version}-%{release}
+Requires: perl-Test-RequiresInternet = %{version}-%{release}
 
 %description dev
 dev components for the perl-Test-RequiresInternet package.
