@@ -4,13 +4,14 @@
 #
 Name     : perl-Test-RequiresInternet
 Version  : 0.05
-Release  : 15
+Release  : 16
 URL      : http://search.cpan.org/CPAN/authors/id/M/MA/MALLEN/Test-RequiresInternet-0.05.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/M/MA/MALLEN/Test-RequiresInternet-0.05.tar.gz
-Summary  : Easily test network connectivity
+Summary  : 'Easily test network connectivity'
 Group    : Development/Tools
 License  : Artistic-1.0 Artistic-1.0-Perl GPL-1.0
 Requires: perl-Test-RequiresInternet-license = %{version}-%{release}
+Requires: perl-Test-RequiresInternet-perl = %{version}-%{release}
 BuildRequires : buildreq-cpan
 
 %description
@@ -37,14 +38,24 @@ Group: Default
 license components for the perl-Test-RequiresInternet package.
 
 
+%package perl
+Summary: perl components for the perl-Test-RequiresInternet package.
+Group: Default
+Requires: perl-Test-RequiresInternet = %{version}-%{release}
+
+%description perl
+perl components for the perl-Test-RequiresInternet package.
+
+
 %prep
 %setup -q -n Test-RequiresInternet-0.05
+cd %{_builddir}/Test-RequiresInternet-0.05
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
+export LANG=C.UTF-8
 if test -f Makefile.PL; then
 %{__perl} Makefile.PL
 make  %{?_smp_mflags}
@@ -54,7 +65,7 @@ else
 fi
 
 %check
-export LANG=C
+export LANG=C.UTF-8
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
@@ -63,7 +74,7 @@ make TEST_VERBOSE=1 test
 %install
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/perl-Test-RequiresInternet
-cp LICENSE %{buildroot}/usr/share/package-licenses/perl-Test-RequiresInternet/LICENSE
+cp %{_builddir}/Test-RequiresInternet-0.05/LICENSE %{buildroot}/usr/share/package-licenses/perl-Test-RequiresInternet/f93e41f283e6ffa249d7106244fbbe891f980cb6
 if test -f Makefile.PL; then
 make pure_install PERL_INSTALL_ROOT=%{buildroot} INSTALLDIRS=vendor
 else
@@ -76,7 +87,6 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.28.2/Test/RequiresInternet.pm
 
 %files dev
 %defattr(-,root,root,-)
@@ -84,4 +94,8 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/perl-Test-RequiresInternet/LICENSE
+/usr/share/package-licenses/perl-Test-RequiresInternet/f93e41f283e6ffa249d7106244fbbe891f980cb6
+
+%files perl
+%defattr(-,root,root,-)
+/usr/lib/perl5/vendor_perl/5.30.1/Test/RequiresInternet.pm
