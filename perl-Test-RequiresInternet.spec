@@ -4,7 +4,7 @@
 #
 Name     : perl-Test-RequiresInternet
 Version  : 0.05
-Release  : 16
+Release  : 17
 URL      : http://search.cpan.org/CPAN/authors/id/M/MA/MALLEN/Test-RequiresInternet-0.05.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/M/MA/MALLEN/Test-RequiresInternet-0.05.tar.gz
 Summary  : 'Easily test network connectivity'
@@ -98,4 +98,4 @@ find %{buildroot} -type f -name '*.bs' -empty -exec rm -f {} ';'
 
 %files perl
 %defattr(-,root,root,-)
-/usr/lib/perl5/vendor_perl/5.30.1/Test/RequiresInternet.pm
+/usr/lib/perl5/vendor_perl/5.30.2/Test/RequiresInternet.pm
