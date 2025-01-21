@@ -5,7 +5,7 @@
 #
 Name     : perl-Test-RequiresInternet
 Version  : 0.05
-Release  : 31
+Release  : 32
 URL      : http://search.cpan.org/CPAN/authors/id/M/MA/MALLEN/Test-RequiresInternet-0.05.tar.gz
 Source0  : http://search.cpan.org/CPAN/authors/id/M/MA/MALLEN/Test-RequiresInternet-0.05.tar.gz
 Summary  : 'Easily test network connectivity'
